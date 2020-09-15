@@ -22,6 +22,8 @@ Development utilities:
 
 ## Setup
 
+This will install all the dependent packages
+
 ```
 npm install
 ```
@@ -47,6 +49,16 @@ npm run dev
 ## After Setup
 ```
 Edit .ENV file and set DB parameters
+
+NODE_ENV=development
+PORT=5000
+
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_DATABASE=
+
+
 ```
 
 # Running
