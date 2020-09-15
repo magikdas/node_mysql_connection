@@ -46,5 +46,10 @@ npm run dev
 
 ## After Setup
 ```
-run http://localhost:5000/api/v1/student across GET, PUT, POST and DELETE in Postman or Insomnia
+Edit .ENV file and set DB parameters
+```
+
+## Running
+```
+run http://localhost:5000/api/v1/teacher across GET, PUT, POST and DELETE in Postman or Insomnia
 ```
