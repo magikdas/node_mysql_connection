@@ -49,10 +49,22 @@ npm run dev
 Edit .ENV file and set DB parameters
 ```
 
-## Running
+# Running
 ```
 run http://localhost:5000/api/v1/teacher across GET, PUT, POST and DELETE in Postman or Insomnia
 ```
-# Query Params
+## Query Params
 
-Hello
+```
+Ensure in header 'Content-Type' is set as 'application/json'
+
+{
+    "first_name": "John",
+    "last_name": "McKenna",
+    "gender": "male",
+    "mobile": 9364356232,
+    "email": "abc@xyz.com",
+    "dob": "2008-07-31"
+}
+
+```
