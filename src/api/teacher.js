@@ -21,14 +21,14 @@ router.get('/', async (req, res, next) => {
 router.get('/group', async (req, res, next) => {
 
     const key_name = req.body.key_name.toString();
-    let filter_name = req.body.filter_name.toString();
-    let filter_value = req.body.filter_value.toString();
+    let filter_name = req.body.filter_name ? req.body.filter_name.toString() : "";
+    let filter_value = req.body.filter_value ? req.body.filter_value.toString() : "";
 
     const { key_type } = req.body;
 
     //Switching different case conditions 
     switch (key_type) {
-        case 1: // Count        {"key_name" : "first_name","key_type" : 1}
+        case 1: // Count         {"key_name" : "first_name","key_type" : 1,"filter_name":"first_name","filter_value":"John"}
             var queryCheck = "select " + key_name + ", count(*) Count from school_db.teacher_master group by " + key_name;
             break;
         case 2: // Sum        
@@ -74,8 +74,9 @@ router.get('/group', async (req, res, next) => {
 router.get('/search', async (req, res, next) => {
     const key_name = req.body.key_name.toString();
     let key_value = req.body.key_value.toString();
-    let key_limit = req.body.key_limit.toString() || 100;
-    let key_page = req.body.key_page.toString() || 1;
+
+    let key_limit = req.body.key_limit ? req.body.key_limit.toString() : 100;
+    let key_page = req.body.key_page ? req.body.key_page.toString() : 1;
 
     //Converting Page information into SQL Offser Information
     if (key_page == 1)
@@ -87,7 +88,7 @@ router.get('/search', async (req, res, next) => {
 
     //Switching different case conditions 
     switch (key_type) {
-        case 1: // String - Contains        {"key_name" : "first_name","key_value" : "john","key_type" : 1}
+        case 1: // String - Contains        {"key_name" : "first_name","key_value" : "john","key_type" : 1, "key_limit" : 100,"key_page" : 1}
             var queryCheck = "select * from school_db.teacher_master where " + key_name + " like '%" + key_value + "%' limit " + key_offset + ", " + key_limit;
             break;
         case 2: // String - Starts With     {"key_name" : "first_name","key_value" : "jo","key_type" : 2}
