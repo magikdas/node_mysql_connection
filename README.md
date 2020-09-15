@@ -53,3 +53,6 @@ Edit .ENV file and set DB parameters
 ```
 run http://localhost:5000/api/v1/teacher across GET, PUT, POST and DELETE in Postman or Insomnia
 ```
+Query Params
+
+Hello
